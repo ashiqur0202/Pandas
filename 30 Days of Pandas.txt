@@ -1,1 +1,36 @@
+595. Big Countries
+def big_countries(world: pd.DataFrame) -> pd.DataFrame:
+    big_countries_df = world[(world['area'] >=3000000) | (world['population'] >=25000000)]
+    return big_countries_df[['name', 'population', 'area']]
+----------------------------------------------------------------------------------------------
+1757. Recyclable and Low Fat Products
+def find_products(products: pd.DataFrame) -> pd.DataFrame:
+    find_products_df = products[(products['low_fats']=='Y') & (products['recyclable']=='Y')]
+    return find_products_df[['product_id']]
+----------------------------------------------------------------------------------------------
+183. Customers Who Never Order
+def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
+    df=customers[~customers['id'].isin(orders['customerId'])]
+    df=df[['name']].rename(columns={'name':'Customers'})
+    return df
+----------------------------------------------------------------------------------------------
+1148. Article Views I
+def article_views(views: pd.DataFrame) -> pd.DataFrame:
+    df = views[views['author_id']==views['viewer_id']]
+    unique_df = df['author_id'].unique()
+    unique_df = sorted(unique_df)
+    final_df = pd.DataFrame({'id': unique_df})
+    return final_df
+----------------------------------------------------------------------------------------------
 
+----------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
