@@ -34,11 +34,21 @@ def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:
     employees['bonus']=employees.bonus.fillna(value=0)
     return employees[['employee_id','bonus']].sort_values(by='employee_id')
 ----------------------------------------------------------------------------------------------
-
+1667. Fix Names in a Table
+def fix_names(users: pd.DataFrame) -> pd.DataFrame:
+    users['name'] = users['name'].str.capitalize()
+    df = users.sort_values(by='user_id', ascending=True)
+    return df
 ----------------------------------------------------------------------------------------------
-
+1517. Find Users With Valid E-Mails
+ef valid_emails(users: pd.DataFrame) -> pd.DataFrame:
+    df = users[users['mail'].str.match(r'^[A-Za-z][A-Za-z0-9_\.\-]*@leetcode(\?com)?\.com$')]
+    return df
 ----------------------------------------------------------------------------------------------
-
+1527. Patients With a Condition
+def find_patients(patients: pd.DataFrame) -> pd.DataFrame:
+    df = patients[patients['conditions'].str.contains(r'\DIAB1')]
+    return df
 ----------------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------------
